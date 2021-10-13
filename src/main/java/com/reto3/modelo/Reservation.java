@@ -19,10 +19,10 @@ public class Reservation implements Serializable {
     @Column(name = "id", nullable = false)
     private Integer idReservation;
     @Column(name = "startDate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date startDate;
     @Column(name = "devolutionDate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date devolutionDate;
     @Column(name = "status")
     private String status = "created";
