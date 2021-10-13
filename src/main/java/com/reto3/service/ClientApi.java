@@ -10,17 +10,34 @@ import java.util.Optional;
 
 @Service
 public class ClientApi {
+    /**
+     * Inicializamos el repositorio
+     */
     @Autowired
     private ClientRepository clientRepository;
 
+    /**
+     * Método para obtener todos los clientes del repositorio
+     * @return
+     */
     public List<Client> getAll(){
         return clientRepository.getAll();
     }
 
+    /**
+     * Método para obtener un cliente por id
+     * @param id
+     * @return
+     */
     public Optional<Client> getClient(int id){
         return clientRepository.getClient(id);
     }
 
+    /**
+     * Método para agregar un cliente
+     * @param client
+     * @return
+     */
     public Client save(Client client){
         if (client.getIdClient() == null){
             return clientRepository.save(client);

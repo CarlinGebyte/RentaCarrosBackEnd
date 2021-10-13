@@ -13,19 +13,36 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/Message/")
 public class MessageWeb {
+    /**
+     * Inicializamos Api Message
+     */
     @Autowired
     private MessageApi messageApi;
 
+    /**
+     * Método para obtener todos los mensajes desde URL
+     * @return
+     */
     @GetMapping("all")
     public List<Message> getAll(){
         return messageApi.getAll();
     }
 
+    /**
+     * Método para obtener un mensajes por id desde URL
+     * @param id
+     * @return
+     */
     @GetMapping("{id}")
     public Optional<Message> getMessage(@PathVariable("id") int id){
         return messageApi.getMessage(id);
     }
 
+    /**
+     * Método para agregar un mensaje desde URL
+     * @param message
+     * @return
+     */
     @PostMapping("save")
     @ResponseStatus(HttpStatus.CREATED)
     public Message save(@RequestBody Message message){

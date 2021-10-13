@@ -13,18 +13,36 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/Car/")
 public class CarWeb {
+    /**
+     * Inicializamos el Api Car
+     */
     @Autowired
     private CarApi carApi;
 
+    /**
+     * Método para obtener los carros por URL
+     * @return
+     */
     @GetMapping("all")
     public List<Car> getCar(){
         return carApi.getAll();
     }
 
+    /**
+     * Método para obtener un carro por id desde URL
+     * @param id
+     * @return
+     */
     @GetMapping("{id}")
     public Optional<Car> getCar(@PathVariable("id") int id){
         return carApi.getCar(id);
     }
+
+    /**
+     * Método para agregar un carro desde URL
+     * @param car
+     * @return
+     */
     @PostMapping("save")
     @ResponseStatus(HttpStatus.CREATED)
     public Car save(@RequestBody Car car){

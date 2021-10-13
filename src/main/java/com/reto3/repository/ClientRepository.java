@@ -10,17 +10,34 @@ import java.util.Optional;
 
 @Repository
 public class ClientRepository {
+    /**
+     * Atributo Repositorio CLient
+     */
     @Autowired
     private ClientCrudRepository clientCrudRepository;
 
+    /**
+     * Método para encontrar todos los clientes del repositorio
+     * @return
+     */
     public List<Client> getAll(){
         return (List<Client>) clientCrudRepository.findAll();
     }
 
+    /**
+     * Método para encontrar un cliente por id
+     * @param id
+     * @return
+     */
     public Optional<Client> getClient(int id){
         return clientCrudRepository.findById(id);
     }
 
+    /**
+     * Método para agregar un cliente
+     * @param client
+     * @return
+     */
     public Client save(Client client){
         return clientCrudRepository.save(client);
     }

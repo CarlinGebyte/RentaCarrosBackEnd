@@ -10,17 +10,34 @@ import java.util.Optional;
 
 @Service
 public class GamaApi {
+    /**
+     * Inicializamos el repositorio Gama
+     */
     @Autowired
     private GamaRepository gamaRepository;
 
+    /**
+     * Método para obtener todas las gamas del repositorio
+     * @return
+     */
     public List<Gama> getAll(){
         return gamaRepository.getAll();
     }
 
+    /**
+     * Método para obtener una gama por id
+     * @param id
+     * @return
+     */
     public Optional<Gama> getGama(int id){
         return gamaRepository.getGama(id);
     }
 
+    /**
+     * Método para agregar una gama
+     * @param gama
+     * @return
+     */
     public Gama save(Gama gama){
         if(gama.getIdGama()==null){
             return gamaRepository.save(gama);

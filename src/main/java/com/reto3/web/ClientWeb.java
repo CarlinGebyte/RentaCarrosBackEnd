@@ -13,19 +13,36 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/Client/")
 public class ClientWeb {
+    /**
+     * Inicializamos Api Client
+     */
     @Autowired
     private ClientApi clientApi;
 
+    /**
+     * Método para obtener todos los clientes por URL
+     * @return
+     */
     @GetMapping("all")
     public List<Client> getAll(){
         return clientApi.getAll();
     }
 
+    /**
+     * Método para obtener un cliente por id desde URL
+     * @param id
+     * @return
+     */
     @GetMapping("{id}")
     public Optional<Client> getClient(@PathVariable("id") int id){
         return clientApi.getClient(id);
     }
 
+    /**
+     * Método para agregar un cliente desde URL
+     * @param client
+     * @return
+     */
     @PostMapping("save")
     @ResponseStatus(HttpStatus.CREATED)
     public Client save(@RequestBody Client client){

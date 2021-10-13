@@ -10,17 +10,34 @@ import java.util.Optional;
 
 @Repository
 public class MessageRepository {
+    /**
+     * Atributo Repositorio Message
+     */
     @Autowired
     private MessageCrudRepository messageCrudRepository;
 
+    /**
+     * Método para obtener todos los mensajes del repositorio
+     * @return
+     */
     public List<Message> getAll(){
         return (List<Message>) messageCrudRepository.findAll();
     }
 
+    /**
+     * Método para obtener un mensaje por id
+     * @param id
+     * @return
+     */
     public Optional<Message> getMessage(int id){
         return messageCrudRepository.findById(id);
     }
 
+    /**
+     * Método para agregar un mensaje
+     * @param message
+     * @return
+     */
     public Message save(Message message){
         return messageCrudRepository.save(message);
     }

@@ -1,9 +1,13 @@
 package com.reto3.modelo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -15,9 +19,11 @@ public class Reservation implements Serializable {
     @Column(name = "id", nullable = false)
     private Integer idReservation;
     @Column(name = "startDate")
-    private String startDate;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date startDate;
     @Column(name = "devolutionDate")
-    private String devolutionDate;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date devolutionDate;
     @Column(name = "status")
     private String status = "created";
 
@@ -41,19 +47,19 @@ public class Reservation implements Serializable {
         this.idReservation = idReservation;
     }
 
-    public String getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public String getDevolutionDate() {
+    public Date getDevolutionDate() {
         return devolutionDate;
     }
 
-    public void setDevolutionDate(String devolutionDate) {
+    public void setDevolutionDate(Date devolutionDate) {
         this.devolutionDate = devolutionDate;
     }
 
