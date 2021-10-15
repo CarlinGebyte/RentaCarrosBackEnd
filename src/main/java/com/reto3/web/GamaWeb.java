@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-@RequestMapping("/Gama/")
+@RequestMapping("/api/Gama/")
 public class GamaWeb {
     /**
      * Inicializamos Api Gama

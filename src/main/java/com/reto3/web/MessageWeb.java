@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-@RequestMapping("/Message/")
+@RequestMapping("/api/Message/")
 public class MessageWeb {
     /**
      * Inicializamos Api Message
