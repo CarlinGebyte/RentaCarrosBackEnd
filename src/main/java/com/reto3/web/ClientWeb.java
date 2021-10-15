@@ -43,7 +43,7 @@ public class ClientWeb {
      * @param client
      * @return
      */
-    @PostMapping("save")
+    @PostMapping("all")
     @ResponseStatus(HttpStatus.CREATED)
     public Client save(@RequestBody Client client){
         return clientApi.save(client);
