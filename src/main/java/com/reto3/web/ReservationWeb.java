@@ -43,7 +43,7 @@ public class ReservationWeb {
      * @param reservation
      * @return
      */
-    @PostMapping("all")
+    @PostMapping("save")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation save(@RequestBody Reservation reservation){
         return reservationApi.save(reservation);

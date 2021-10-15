@@ -43,7 +43,7 @@ public class CarWeb {
      * @param car
      * @return
      */
-    @PostMapping("all")
+    @PostMapping("save")
     @ResponseStatus(HttpStatus.CREATED)
     public Car save(@RequestBody Car car){
         return carApi.save(car);

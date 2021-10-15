@@ -43,7 +43,7 @@ public class GamaWeb {
      * @param gama
      * @return
      */
-    @PostMapping("all")
+    @PostMapping("save")
     @ResponseStatus(HttpStatus.CREATED)
     public Gama save(@RequestBody Gama gama){
         return gamaApi.save(gama);

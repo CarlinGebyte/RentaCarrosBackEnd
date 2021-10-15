@@ -43,7 +43,7 @@ public class MessageWeb {
      * @param message
      * @return
      */
-    @PostMapping("all")
+    @PostMapping("save")
     @ResponseStatus(HttpStatus.CREATED)
     public Message save(@RequestBody Message message){
         return messageApi.save(message);
