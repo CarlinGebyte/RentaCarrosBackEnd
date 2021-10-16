@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -22,7 +23,7 @@ public class Reservation implements Serializable {
     @Column(name = "devolutionDate")
     //@JsonFormat(pattern="yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd-'T'HH:mm:ss.SSS")
-    private Date devolutionDate;
+    private Calendar devolutionDate;
 
     @Column(name = "status")
     private String status = "created";
@@ -55,11 +56,11 @@ public class Reservation implements Serializable {
         this.startDate = startDate;
     }
 
-    public Date getDevolutionDate() {
+    public Calendar getDevolutionDate() { 
         return devolutionDate;
     }
 
-    public void setDevolutionDate(Date devolutionDate) {
+    public void setDevolutionDate(Calendar devolutionDate) {
         this.devolutionDate = devolutionDate;
     }
 
