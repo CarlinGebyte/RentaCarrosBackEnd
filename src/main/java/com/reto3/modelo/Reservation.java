@@ -4,6 +4,7 @@ package com.reto3.modelo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -15,11 +16,9 @@ public class Reservation implements Serializable {
     private Integer idReservation;
     @Column(name = "startDate")
     //@JsonFormat(pattern="yyyy-MM-dd")
-    //@DateTimeFormat(pattern = "yyyy-MM-dd-'T'HH:mm:ss.SSS")
     private Date startDate;
     @Column(name = "devolutionDate")
     //@JsonFormat(pattern="yyyy-MM-dd")
-    //@DateTimeFormat(pattern = "yyyy-MM-dd-'T'HH:mm:ss.SSS")
     private Date devolutionDate;
 
     @Column(name = "status")
