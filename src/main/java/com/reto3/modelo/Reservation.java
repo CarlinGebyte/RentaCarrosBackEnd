@@ -2,6 +2,7 @@ package com.reto3.modelo;
 
 //import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,10 +17,13 @@ public class Reservation implements Serializable {
     private Integer idReservation;
     @Column(name = "startDate")
     //@JsonFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd-'T'HH:mm:ss.SSS")
     private Date startDate;
     @Column(name = "devolutionDate")
     //@JsonFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd-'T'HH:mm:ss.SSS")
     private Date devolutionDate;
+
     @Column(name = "status")
     private String status = "created";
 
