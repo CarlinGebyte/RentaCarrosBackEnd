@@ -1,11 +1,9 @@
 package com.reto3.repository;
 
-import com.reto3.modelo.Car;
 import com.reto3.modelo.Reservation;
 import com.reto3.repository.crud.ReservationCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 
