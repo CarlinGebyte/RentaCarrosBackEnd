@@ -49,4 +49,39 @@ public class MessageApi {
             }
         }
     }
+
+    /**
+     * Método para actualizar un mensaje
+     * @param message
+     * @return
+     */
+    public Message update(Message message){
+        if (message.getIdMessage() != null){
+            Optional<Message> evnt = messageRepository.getMessage(message.getIdMessage());
+            if (!evnt.isEmpty()){
+                if (message.getMessageText() != null){
+                    evnt.get().setMessageText(message.getMessageText());
+                }
+                messageRepository.save(evnt.get());
+                return evnt.get();
+            }else{
+                return message;
+            }
+        }else{
+            return message;
+        }
+    }
+
+    /**
+     * Método para eliminar un mensaje
+     * @param id
+     * @return
+     */
+    public boolean delete(int id){
+        Boolean flag = getMessage(id).map(message -> {
+            messageRepository.delete(message);
+            return true;
+        }).orElse(false);
+        return flag;
+    }
 }

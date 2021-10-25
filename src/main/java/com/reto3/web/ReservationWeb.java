@@ -47,4 +47,16 @@ public class ReservationWeb {
     public Reservation save(@RequestBody Reservation reservation){
         return reservationApi.save(reservation);
     }
+
+    @PutMapping("update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservation update(@RequestBody Reservation reservation){
+        return reservationApi.update(reservation);
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id){
+        return reservationApi.delete(id);
+    }
 }

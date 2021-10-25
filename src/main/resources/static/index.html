@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base href="/">
+    <script rel="stylesheet" type="text/css" src="/webjars/bootstrap/5.1.0/css/bootstrap.min.css"></script>
+    <script type="text/javascript" src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <title>RentACar</title>
+</head>
+<body>
+<h1>#MisionTIC 2021</h1>
+<div class="container unauthenticated">
+    Para iniciar sesión con GitHub:
+    <a href="/oauth2/authorization/github">Haz click</a>
+</div>
+<div class="container authenticated" style="display: none">
+    Autenticado como: <span id="user"></span>
+</div>
+
+</body>
+
+<script type="text/javascript">
+    $.get("/user",function (data){
+        $("#user").html(data.name);
+        $(".unauthenticated").hide();
+        $(".authenticated").show();
+    });
+</script>
+</html>

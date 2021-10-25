@@ -40,7 +40,7 @@ public class Reservation implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idReservation")
     @JsonIgnoreProperties("reservations")
-    private Car car;
+    private Carros car;
     /**
      * Relación muchos a uno tabla client
      */
@@ -125,16 +125,16 @@ public class Reservation implements Serializable {
      * Getter car
      * @return
      */
-    public Car getCar() {
+    public Carros getCar() {
         return car;
     }
 
     /**
      * Setter car
-     * @param car
+     * @param carros
      */
-    public void setCar(Car car) {
-        this.car = car;
+    public void setCar(Carros carros) {
+        this.car = carros;
     }
 
     /**

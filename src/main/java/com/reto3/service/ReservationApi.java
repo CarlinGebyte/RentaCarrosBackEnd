@@ -49,4 +49,45 @@ public class ReservationApi {
             }
         }
     }
+
+    /**
+     * Método para actualizar una reservación
+     * @param reservation
+     * @return
+     */
+    public Reservation update(Reservation reservation){
+        if (reservation.getIdReservation() != null){
+            Optional<Reservation> evnt = reservationRepository.getReservation(reservation.getIdReservation());
+            if (!evnt.isEmpty()){
+                if (reservation.getStartDate() != null){
+                    evnt.get().setStartDate(reservation.getStartDate());
+                }
+                if (reservation.getDevolutionDate() != null){
+                    evnt.get().setDevolutionDate(reservation.getDevolutionDate());
+                }
+                if (reservation.getStatus() != null){
+                    evnt.get().setStatus(reservation.getStatus());
+                }
+                reservationRepository.save(evnt.get());
+                return evnt.get();
+            }else{
+                return reservation;
+            }
+        }else{
+            return reservation;
+        }
+    }
+
+    /**
+     * Método para eliminar una reservación
+     * @param id
+     * @return
+     */
+    public boolean delete(int id){
+        Boolean flag = getReservation(id).map(reservation -> {
+            reservationRepository.delete(reservation);
+            return true;
+        }).orElse(false);
+        return flag;
+    }
 }

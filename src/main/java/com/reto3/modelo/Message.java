@@ -26,7 +26,7 @@ public class Message implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idCar")
     @JsonIgnoreProperties({"messages", "reservations"})
-    private Car car;
+    private Carros car;
     /**
      * Relación muchos a uno tabla Client
      */
@@ -73,16 +73,16 @@ public class Message implements Serializable {
      * Getter Car
      * @return
      */
-    public Car getCar() {
+    public Carros getCar() {
         return car;
     }
 
     /**
      * Setter Car
-     * @param car
+     * @param carros
      */
-    public void setCar(Car car) {
-        this.car = car;
+    public void setCar(Carros carros) {
+        this.car = carros;
     }
 
     /**

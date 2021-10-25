@@ -40,4 +40,12 @@ public class ClientRepository {
     public Client save(Client client){
         return clientCrudRepository.save(client);
     }
+
+    /**
+     * Método para eliminar un cliente
+     * @param client
+     */
+    public void delete(Client client){
+        clientCrudRepository.delete(client);
+    }
 }

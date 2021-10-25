@@ -25,16 +25,17 @@ public class Gama {
     @Column(name = "description")
     private String description;
     /**
-     * Relación uno a muchos tabla Car
+     * Relación uno a muchos de la tabla Car
      */
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "gama")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "gama")
     @JsonIgnoreProperties("gama")
-    private List<Car> car;
+    private List<Carros> cars;
 
     // Getters y Setters
 
     /**
      * Getter idGama
+     *
      * @return
      */
     public Integer getIdGama() {
@@ -43,6 +44,7 @@ public class Gama {
 
     /**
      * Setter idGama
+     *
      * @param idGama
      */
     public void setIdGama(Integer idGama) {
@@ -51,6 +53,7 @@ public class Gama {
 
     /**
      * Getter Name
+     *
      * @return
      */
     public String getName() {
@@ -59,6 +62,7 @@ public class Gama {
 
     /**
      * Setter Name
+     *
      * @param name
      */
     public void setName(String name) {
@@ -67,6 +71,7 @@ public class Gama {
 
     /**
      * Getter Description
+     *
      * @return
      */
     public String getDescription() {
@@ -75,6 +80,7 @@ public class Gama {
 
     /**
      * Setter Description
+     *
      * @param description
      */
     public void setDescription(String description) {
@@ -83,17 +89,18 @@ public class Gama {
 
     /**
      * Getter Car
+     *
      * @return
      */
-    public List<Car> getCars() {
-        return car;
+    public List<Carros> getCars() {
+        return cars;
     }
 
     /**
      * Setter Car
      * @param cars
      */
-    public void setCars(List<Car> cars) {
-        this.car = cars;
+    public void setCars(List<Carros> cars) {
+        this.cars = cars;
     }
 }

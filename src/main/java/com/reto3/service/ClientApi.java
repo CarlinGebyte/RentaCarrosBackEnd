@@ -1,5 +1,4 @@
 package com.reto3.service;
-
 import com.reto3.modelo.Client;
 import com.reto3.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +47,46 @@ public class ClientApi {
                 return client;
             }
         }
+    }
+
+    /**
+     * Método para actualizar un cliente
+     * @param client
+     * @return
+     */
+    public Client update(Client client){
+        if (client.getIdClient() != null){
+            Optional<Client> evnt = clientRepository.getClient(client.getIdClient());
+            if (!evnt.isEmpty()){
+                if (client.getName() != null){
+                    evnt.get().setName(client.getName());
+                }
+                if (client.getAge() != 0){
+                    evnt.get().setAge(client.getAge());
+                }
+                if (client.getPassword() != null){
+                    evnt.get().setPassword(client.getPassword());
+                }
+                clientRepository.save(evnt.get());
+                return evnt.get();
+            }else{
+                return client;
+            }
+        }else{
+            return client;
+        }
+    }
+
+    /**
+     * Método para eliminar un cliente
+     * @param id
+     * @return
+     */
+    public boolean delete(int id){
+        Boolean flag = getClient(id).map(client -> {
+            clientRepository.delete(client);
+            return true;
+        }).orElse(false);
+        return flag;
     }
 }

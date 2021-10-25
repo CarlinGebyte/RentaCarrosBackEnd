@@ -1,6 +1,6 @@
 package com.reto3.web;
 
-import com.reto3.modelo.Car;
+import com.reto3.modelo.Carros;
 import com.reto3.service.CarApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class CarWeb {
      * @return
      */
     @GetMapping("all")
-    public List<Car> getCar(){
+    public List<Carros> getCar(){
         return carApi.getAll();
     }
 
@@ -33,18 +33,30 @@ public class CarWeb {
      * @return
      */
     @GetMapping("{id}")
-    public Optional<Car> getCar(@PathVariable("id") int id){
+    public Optional<Carros> getCar(@PathVariable("id") int id){
         return carApi.getCar(id);
     }
 
     /**
      * Método para agregar un carro desde URL
-     * @param car
+     * @param carros
      * @return
      */
     @PostMapping("save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Car save(@RequestBody Car car){
-        return carApi.save(car);
+    public Carros save(@RequestBody Carros carros){
+        return carApi.save(carros);
+    }
+
+   @PutMapping("update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Carros update(@RequestBody Carros carros){
+        return carApi.update(carros);
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id){
+        return carApi.delete(id);
     }
 }

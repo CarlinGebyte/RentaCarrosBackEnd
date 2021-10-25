@@ -1,6 +1,6 @@
 package com.reto3.repository;
 
-import com.reto3.modelo.Car;
+import com.reto3.modelo.Carros;
 import com.reto3.repository.crud.CarCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,8 +19,8 @@ public class CarRepository {
      * Método para encontrar todos los carros del repositorio
      * @return
      */
-    public List<Car> getAll(){
-        return (List<Car>) carCrudRepository.findAll();
+    public List<Carros> getAll(){
+        return (List<Carros>) carCrudRepository.findAll();
     }
 
     /**
@@ -28,16 +28,24 @@ public class CarRepository {
      * @param id
      * @return
      */
-    public Optional<Car> getCar(int id){
+    public Optional<Carros> getCar(int id){
         return carCrudRepository.findById(id);
     }
 
     /**
      * Método para agregar un carro nuevo
-     * @param car
+     * @param carros
      * @return
      */
-    public Car save(Car car){
-        return carCrudRepository.save(car);
+    public Carros save(Carros carros){
+        return carCrudRepository.save(carros);
+    }
+
+    /**
+     * Método para eliminar un carro
+     * @param carros
+     */
+    public void delete(Carros carros){
+        carCrudRepository.delete(carros);
     }
 }

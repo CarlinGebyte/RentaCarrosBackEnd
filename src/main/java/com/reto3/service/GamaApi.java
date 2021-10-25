@@ -1,5 +1,4 @@
 package com.reto3.service;
-
 import com.reto3.modelo.Gama;
 import com.reto3.repository.GamaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +47,42 @@ public class GamaApi {
                 return gama;
             }
         }
+    }
+
+    /**
+     * Método para actualizar una Gama
+     * @param gama
+     * @return
+     */
+    public Gama update(Gama gama){
+        if (gama.getIdGama() != null){
+            Optional<Gama> evnt = gamaRepository.getGama(gama.getIdGama());
+            if (!evnt.isEmpty()){
+                if (gama.getName() != null){
+                    evnt.get().setName(gama.getName());
+                }if (gama.getDescription() != null){
+                    evnt.get().setDescription(gama.getDescription());
+                }
+                gamaRepository.save(evnt.get());
+                return evnt.get();
+            }else{
+                return gama;
+            }
+        }else{
+            return gama;
+        }
+    }
+
+    /**
+     * Método para eliminar una Gama
+     * @param id
+     * @return
+     */
+    public boolean delete(int id){
+        Boolean flag = getGama(id).map(gama -> {
+            gamaRepository.delete(gama);
+            return true;
+        }).orElse(false);
+        return flag;
     }
 }
