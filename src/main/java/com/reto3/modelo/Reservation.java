@@ -1,7 +1,9 @@
 package com.reto3.modelo;
 
 //import com.fasterxml.jackson.annotation.JsonFormat;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -59,6 +61,7 @@ public class Reservation implements Serializable {
 
     /**
      * Getter idReservation
+     *
      * @return
      */
     public Integer getIdReservation() {
@@ -67,6 +70,7 @@ public class Reservation implements Serializable {
 
     /**
      * Setter idReservation
+     *
      * @param idReservation
      */
     public void setIdReservation(Integer idReservation) {
@@ -75,6 +79,7 @@ public class Reservation implements Serializable {
 
     /**
      * Getter startDate
+     *
      * @return
      */
     public Date getStartDate() {
@@ -83,6 +88,7 @@ public class Reservation implements Serializable {
 
     /**
      * Setter startDate
+     *
      * @param startDate
      */
     public void setStartDate(Date startDate) {
@@ -91,6 +97,7 @@ public class Reservation implements Serializable {
 
     /**
      * Getter devolutionDate
+     *
      * @return
      */
     public Date getDevolutionDate() {
@@ -99,6 +106,7 @@ public class Reservation implements Serializable {
 
     /**
      * Setter devolutionDate
+     *
      * @param devolutionDate
      */
     public void setDevolutionDate(Date devolutionDate) {
@@ -107,6 +115,7 @@ public class Reservation implements Serializable {
 
     /**
      * Getter status
+     *
      * @return
      */
     public String getStatus() {
@@ -115,6 +124,7 @@ public class Reservation implements Serializable {
 
     /**
      * Setter status
+     *
      * @param status
      */
     public void setStatus(String status) {
@@ -123,6 +133,7 @@ public class Reservation implements Serializable {
 
     /**
      * Getter car
+     *
      * @return
      */
     public Carros getCar() {
@@ -131,6 +142,7 @@ public class Reservation implements Serializable {
 
     /**
      * Setter car
+     *
      * @param carros
      */
     public void setCar(Carros carros) {
@@ -139,6 +151,7 @@ public class Reservation implements Serializable {
 
     /**
      * Getter client
+     *
      * @return
      */
     public Client getClient() {
@@ -147,6 +160,7 @@ public class Reservation implements Serializable {
 
     /**
      * Setter client
+     *
      * @param client
      */
     public void setClient(Client client) {
@@ -155,6 +169,7 @@ public class Reservation implements Serializable {
 
     /**
      * Getter score
+     *
      * @return
      */
     public Integer getScore() {
@@ -163,6 +178,7 @@ public class Reservation implements Serializable {
 
     /**
      * Setter score
+     *
      * @param score
      */
     public void setScore(Integer score) {

@@ -1,6 +1,7 @@
 package com.reto3.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -15,8 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- *
- * author CarlinGebyte
+ * @author CarlinGebyte
  */
 @Entity
 @Table(name = "car")
@@ -55,17 +55,17 @@ public class Carros implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idGama")
     @JsonIgnoreProperties("cars")
-    private Gama gama;
+    private Gama gama = null;
     /**
      * Relación uno a muchos tabla mensajes
      */
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "car")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
     @JsonIgnoreProperties({"car", "client"})
     private List<Message> messages;
     /**
      * Relación uno a muchos tabla reservaciones
      */
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "car")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
     @JsonIgnoreProperties("car")
     private List<Reservation> reservations;
 
@@ -73,6 +73,7 @@ public class Carros implements Serializable {
 
     /**
      * Getter idCar
+     *
      * @return
      */
     public Integer getIdCar() {
@@ -81,6 +82,7 @@ public class Carros implements Serializable {
 
     /**
      * Setter idCar
+     *
      * @param idCar
      */
     public void setIdCar(Integer idCar) {
@@ -89,6 +91,7 @@ public class Carros implements Serializable {
 
     /**
      * Getter Name
+     *
      * @return
      */
     public String getName() {
@@ -97,6 +100,7 @@ public class Carros implements Serializable {
 
     /**
      * Setter Name
+     *
      * @param name
      */
     public void setName(String name) {
@@ -105,6 +109,7 @@ public class Carros implements Serializable {
 
     /**
      * Getter Brand
+     *
      * @return
      */
     public String getBrand() {
@@ -113,6 +118,7 @@ public class Carros implements Serializable {
 
     /**
      * Setter Brand
+     *
      * @param brand
      */
     public void setBrand(String brand) {
@@ -121,6 +127,7 @@ public class Carros implements Serializable {
 
     /**
      * Getter Year
+     *
      * @return
      */
     public int getYear() {
@@ -129,6 +136,7 @@ public class Carros implements Serializable {
 
     /**
      * Setter Year
+     *
      * @param year
      */
     public void setYear(int year) {
@@ -137,6 +145,7 @@ public class Carros implements Serializable {
 
     /**
      * Getter Description
+     *
      * @return
      */
     public String getDescription() {
@@ -145,6 +154,7 @@ public class Carros implements Serializable {
 
     /**
      * Setter Description
+     *
      * @param description
      */
     public void setDescription(String description) {
@@ -153,6 +163,7 @@ public class Carros implements Serializable {
 
     /**
      * Getter Gama
+     *
      * @return
      */
     public Gama getGama() {
@@ -161,6 +172,7 @@ public class Carros implements Serializable {
 
     /**
      * Setter Gama
+     *
      * @param gama
      */
     public void setGama(Gama gama) {
@@ -169,6 +181,7 @@ public class Carros implements Serializable {
 
     /**
      * Getter Messages
+     *
      * @return
      */
     public List<Message> getMessages() {
@@ -177,7 +190,8 @@ public class Carros implements Serializable {
 
     /**
      * Setter Messages
-      * @param messages
+     *
+     * @param messages
      */
     public void setMessages(List<Message> messages) {
         this.messages = messages;
@@ -185,6 +199,7 @@ public class Carros implements Serializable {
 
     /**
      * Getter Reservations
+     *
      * @return
      */
     public List<Reservation> getReservations() {
@@ -193,6 +208,7 @@ public class Carros implements Serializable {
 
     /**
      * Setter Reservations
+     *
      * @param reservations
      */
     public void setReservations(List<Reservation> reservations) {

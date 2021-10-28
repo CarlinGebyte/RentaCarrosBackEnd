@@ -1,6 +1,7 @@
 package com.reto3.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -98,6 +99,7 @@ public class Gama {
 
     /**
      * Setter Car
+     *
      * @param cars
      */
     public void setCars(List<Carros> cars) {

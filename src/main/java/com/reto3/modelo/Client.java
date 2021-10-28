@@ -1,6 +1,7 @@
 package com.reto3.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -39,13 +40,13 @@ public class Client implements Serializable {
     /**
      * Relación Uno a muchos tabla messages
      */
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")
     private List<Message> messages;
     /**
      * Relación Uno a muchos tabla reservations
      */
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")
     private List<Reservation> reservations;
 
@@ -53,6 +54,7 @@ public class Client implements Serializable {
 
     /**
      * Getter idClient
+     *
      * @return
      */
     public Integer getIdClient() {
@@ -61,6 +63,7 @@ public class Client implements Serializable {
 
     /**
      * Setter idCLient
+     *
      * @param idClient
      */
     public void setIdClient(Integer idClient) {
@@ -69,6 +72,7 @@ public class Client implements Serializable {
 
     /**
      * Getter Email
+     *
      * @return
      */
     public String getEmail() {
@@ -77,6 +81,7 @@ public class Client implements Serializable {
 
     /**
      * Email
+     *
      * @param email
      */
     public void setEmail(String email) {
@@ -85,6 +90,7 @@ public class Client implements Serializable {
 
     /**
      * Getter Password
+     *
      * @return
      */
     public String getPassword() {
@@ -93,6 +99,7 @@ public class Client implements Serializable {
 
     /**
      * Setter Password
+     *
      * @param password
      */
     public void setPassword(String password) {
@@ -101,6 +108,7 @@ public class Client implements Serializable {
 
     /**
      * Getter Name
+     *
      * @return
      */
     public String getName() {
@@ -109,13 +117,16 @@ public class Client implements Serializable {
 
     /**
      * Setter Name
+     *
      * @param name
      */
     public void setName(String name) {
         this.name = name;
     }
+
     /**
      * Getter Age
+     *
      * @return
      */
     public int getAge() {
@@ -124,6 +135,7 @@ public class Client implements Serializable {
 
     /**
      * Setter Age
+     *
      * @param age
      */
     public void setAge(int age) {
@@ -132,6 +144,7 @@ public class Client implements Serializable {
 
     /**
      * Getter Messages
+     *
      * @return
      */
     public List<Message> getMessages() {
@@ -140,6 +153,7 @@ public class Client implements Serializable {
 
     /**
      * Setter Messages
+     *
      * @param messages
      */
     public void setMessages(List<Message> messages) {
@@ -148,6 +162,7 @@ public class Client implements Serializable {
 
     /**
      * Getter Reservations
+     *
      * @return
      */
     public List<Reservation> getReservations() {
@@ -156,6 +171,7 @@ public class Client implements Serializable {
 
     /**
      * Setter Reservations
+     *
      * @param reservations
      */
     public void setReservations(List<Reservation> reservations) {

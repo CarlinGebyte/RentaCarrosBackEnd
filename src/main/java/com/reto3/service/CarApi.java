@@ -4,6 +4,7 @@ import com.reto3.modelo.Carros;
 import com.reto3.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -17,34 +18,37 @@ public class CarApi {
 
     /**
      * Método para obtener todos los carros del repositorio
+     *
      * @return
      */
-    public List<Carros> getAll(){
+    public List<Carros> getAll() {
         return carRepository.getAll();
     }
 
     /**
      * Método para obtener un carro por id
+     *
      * @param id
      * @return
      */
-    public Optional<Carros> getCar(int id){
+    public Optional<Carros> getCar(int id) {
         return carRepository.getCar(id);
     }
 
     /**
      * Método para agregar un carro
+     *
      * @param carros
      * @return
      */
-    public Carros save(Carros carros){
-        if(carros.getIdCar()==null){
+    public Carros save(Carros carros) {
+        if (carros.getIdCar() == null) {
             return carRepository.save(carros);
-        }else{
+        } else {
             Optional<Carros> evt = carRepository.getCar(carros.getIdCar());
-            if(evt.isEmpty()){
+            if (evt.isEmpty()) {
                 return carRepository.save(carros);
-            }else{
+            } else {
                 return carros;
             }
         }
@@ -52,41 +56,43 @@ public class CarApi {
 
     /**
      * Método para actualizar carro
+     *
      * @param carros
      * @return
      */
-    public Carros update(Carros carros){
-        if (carros.getIdCar() != null){
+    public Carros update(Carros carros) {
+        if (carros.getIdCar() != null) {
             Optional<Carros> actualizar = carRepository.getCar(carros.getIdCar());
-            if (!actualizar.isEmpty()){
-                if (carros.getName() != null){
-                actualizar.get().setName(carros.getName());
+            if (!actualizar.isEmpty()) {
+                if (carros.getName() != null) {
+                    actualizar.get().setName(carros.getName());
                 }
-                if (carros.getBrand() != null){
+                if (carros.getBrand() != null) {
                     actualizar.get().setBrand(carros.getBrand());
                 }
-                if (carros.getYear() != 0){
+                if (carros.getYear() != 0) {
                     actualizar.get().setYear(carros.getYear());
                 }
-                if (carros.getDescription() != null){
+                if (carros.getDescription() != null) {
                     actualizar.get().setDescription(carros.getDescription());
                 }
                 carRepository.save(actualizar.get());
                 return actualizar.get();
-            }else{
+            } else {
                 return carros;
             }
-        }else{
+        } else {
             return carros;
         }
     }
 
     /**
      * Método para eliminar un carro
+     *
      * @param id
      * @return
      */
-    public boolean delete(int id){
+    public boolean delete(int id) {
         Boolean flag = getCar(id).map(car -> {
             carRepository.delete(car);
             return true;

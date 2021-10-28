@@ -1,6 +1,7 @@
 package com.reto3.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -39,6 +40,7 @@ public class Message implements Serializable {
 
     /**
      * Getter idMessage
+     *
      * @return
      */
     public Integer getIdMessage() {
@@ -47,6 +49,7 @@ public class Message implements Serializable {
 
     /**
      * Setter idMessage
+     *
      * @param idMessage
      */
     public void setIdMessage(Integer idMessage) {
@@ -55,6 +58,7 @@ public class Message implements Serializable {
 
     /**
      * Getter MessageText
+     *
      * @return
      */
     public String getMessageText() {
@@ -63,6 +67,7 @@ public class Message implements Serializable {
 
     /**
      * Setter MessageText
+     *
      * @param messageText
      */
     public void setMessageText(String messageText) {
@@ -71,6 +76,7 @@ public class Message implements Serializable {
 
     /**
      * Getter Car
+     *
      * @return
      */
     public Carros getCar() {
@@ -79,6 +85,7 @@ public class Message implements Serializable {
 
     /**
      * Setter Car
+     *
      * @param carros
      */
     public void setCar(Carros carros) {
@@ -87,6 +94,7 @@ public class Message implements Serializable {
 
     /**
      * Getter Client
+     *
      * @return
      */
     public Client getClient() {
@@ -95,6 +103,7 @@ public class Message implements Serializable {
 
     /**
      * Setter Client
+     *
      * @param client
      */
     public void setClient(Client client) {
