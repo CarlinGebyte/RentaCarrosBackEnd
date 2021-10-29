@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+/**
+ * @author CarlinGebyte
+ */
 @Service
 public class ReservationApi {
     /**
@@ -17,6 +20,9 @@ public class ReservationApi {
     @Autowired
     private ReservationRepository reservationRepository;
 
+    /**
+     * Inicializamos el Repositorio Client
+     */
     @Autowired
     private ClientRepository clientRepository;
 
@@ -32,11 +38,11 @@ public class ReservationApi {
     /**
      * Método para obtener una reservación por id
      *
-     * @param id
+     * @param idReservation
      * @return
      */
-    public Optional<Reservation> getReservation(int id) {
-        return reservationRepository.getReservation(id);
+    public Optional<Reservation> getReservation(int idReservation) {
+        return reservationRepository.getReservation(idReservation);
     }
 
     /**
@@ -90,34 +96,33 @@ public class ReservationApi {
     /**
      * Método para eliminar una reservación
      *
-     * @param id
+     * @param idReservation
      * @return
      */
-    public boolean delete(int id) {
-        Boolean flag = getReservation(id).map(reservation -> {
+    public boolean delete(int idReservation) {
+        return getReservation(idReservation).map(reservation -> {
             reservationRepository.delete(reservation);
             return true;
         }).orElse(false);
-        return flag;
     }
 
     /**
      * Método para buscar reservaciones en una selección por fechas
      * @param from
-     * @param to
+     * @param until
      * @return
      */
-    public ArrayList<Reservation> getByDate(Date from, Date to) {
+    public ArrayList<Reservation> getByDate(Date from, Date until) {
 
         List<Reservation> reservations = reservationRepository.getAll();
         ArrayList<Reservation> dateReservation = new ArrayList<>();
         int count = 0;
 
         for (Reservation reservation : reservations) {
-            if(from.compareTo(to) < 0) {
-                if (reservation.getDevolutionDate().compareTo(from) > 0 && reservation.getStartDate().compareTo(to) < 0) {
+            if(from.compareTo(until) < 0) {
+                if (reservation.getDevolutionDate().compareTo(from) > 0 && reservation.getStartDate().compareTo(until) < 0) {
                     if ((reservation.getStartDate().compareTo(from) <= 0 || reservation.getStartDate().compareTo(from) >= 0) &&
-                            reservation.getDevolutionDate().compareTo(to) <= 0 || reservation.getDevolutionDate().compareTo(to) >= 0) {
+                            reservation.getDevolutionDate().compareTo(until) <= 0 || reservation.getDevolutionDate().compareTo(until) >= 0) {
                         count++;
                         dateReservation.add(reservation);
 
@@ -136,13 +141,13 @@ public class ReservationApi {
      */
     public HashMap<String, Integer> getVs(){
         List<Reservation> reservations = reservationRepository.getAll();
-        HashMap<String, Integer> status = new HashMap<>();
+        LinkedHashMap<String, Integer> status = new LinkedHashMap<>();
         int completed = 0;
         int cancelled = 0;
         for (Reservation reservation : reservations){
-            if (reservation.getStatus().toLowerCase().equals("completed")){
+            if ("completed".equals(reservation.getStatus().toLowerCase())){
                 completed++;
-            }else if (reservation.getStatus().toLowerCase().equals("cancelled")){
+            }else if ("cancelled".equals(reservation.getStatus().toLowerCase())){
                 cancelled++;
             }
         }
@@ -162,14 +167,15 @@ public class ReservationApi {
         for (Client client: clients){
             Integer total = 0;
             for (Reservation reservation : client.getReservations()) {
-                if (reservation.getStatus().toLowerCase().equals("completed")) {
+                //if ("completed".equals(reservation.getStatus().toLowerCase())) {
                     total++;
-                }
+                //}
             }
             reportClient.put("total", total);
             reportClient.put("client",client);
             countClients.add(reportClient.clone());
             System.out.println(countClients);
+            System.out.println(reportClient);
         }
         return countClients;
     }
