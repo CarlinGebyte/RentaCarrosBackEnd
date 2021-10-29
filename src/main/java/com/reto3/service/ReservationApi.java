@@ -139,7 +139,7 @@ public class ReservationApi {
      * Método para obtener la cantidad de reservas completadas y canceladas
      * @return
      */
-    public HashMap<String, Integer> getVs(){
+    public LinkedHashMap<String, Integer> getVs(){
         List<Reservation> reservations = reservationRepository.getAll();
         LinkedHashMap<String, Integer> status = new LinkedHashMap<>();
         int completed = 0;
@@ -167,9 +167,7 @@ public class ReservationApi {
         for (Client client: clients){
             Integer total = 0;
             for (Reservation reservation : client.getReservations()) {
-                //if ("completed".equals(reservation.getStatus().toLowerCase())) {
                     total++;
-                //}
             }
             reportClient.put("total", total);
             reportClient.put("client",client);

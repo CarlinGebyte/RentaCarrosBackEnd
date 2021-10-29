@@ -1,6 +1,5 @@
 package com.reto3.web;
 
-import com.reto3.modelo.Client;
 import com.reto3.modelo.Reservation;
 import com.reto3.service.ReservationApi;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
@@ -68,7 +64,7 @@ public class ReservationWeb {
      * @return
      */
     @GetMapping("report-status")
-    public HashMap<String, Integer> getVs(){
+    public LinkedHashMap<String, Integer> getVs(){
         return reservationApi.getVs();
     }
     /**
